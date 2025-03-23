@@ -53,11 +53,11 @@ printf("    dst mac : %02X:%02X:%02X:%02X:%02X:%02X\n",
 ```C
 printf("IP Header\n");
 printf("     src ip : %s\n", inet_ntoa(ip->iph_sourceip));
-printf("     src ip : %s\n", inet_ntoa(ip->iph_destip));
+printf("     dst ip : %s\n", inet_ntoa(ip->iph_destip));
 
 printf("TCP Header\n");
 printf("   src port : %d\n", ntohs(tcp->tcp_sport));
-printf("   des port : %d\n", ntohs(tcp->tcp_dport));
+printf("   dst port : %d\n", ntohs(tcp->tcp_dport));
 ```
 - IP와 TCP 헤더에서 출발지와 목적지의 주소를 출력하기 위해 추가했습니다.   
 - `inet_ntoa()` 함수는 빅 엔디안으로 저장된 IP 주소를 사람이 읽을 수 있는 문자열로 변환해줍니다.   
@@ -102,7 +102,7 @@ if (message_size > 0) {
 - `isprint()` 함수를 사용하여 출력 가능한 아스키코드 문자인지 확인합니다.   
    
 ### 🚨 문제점
-- 여러번 시도를 해보았지만 사람이 읽을 수 있는 메시지가 나오지 않았습니다.   
+- 여러번 시도를 해보았지만 사람이 읽을 수 있는 메시지가 나오지 않았습니다.
 
 
 
