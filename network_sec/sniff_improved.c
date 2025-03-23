@@ -77,14 +77,14 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header,
     // ip주소를 string 형식으로 출력하기 위해 ntoa() 함수 사용
     printf("IP Header\n");
     printf("     src ip : %s\n", inet_ntoa(ip->iph_sourceip));
-    printf("     src ip : %s\n", inet_ntoa(ip->iph_destip));
+    printf("     dst ip : %s\n", inet_ntoa(ip->iph_destip));
 
     // TCP Header 출력
     // src는 tcp_sport에, dst는 tcp_dport에 저장되어 있음
     // 빅 엔디언 방식의 데이터를 리틀 엔디언 방식으로 변환하기 위해 ntohs 사용
     printf("TCP Header\n");
     printf("   src port : %d\n", ntohs(tcp->tcp_sport));
-    printf("   des port : %d\n", ntohs(tcp->tcp_dport));
+    printf("   dst port : %d\n", ntohs(tcp->tcp_dport));
     
     /* 메시지 출력하기 */
 
